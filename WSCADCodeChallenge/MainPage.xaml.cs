@@ -1,15 +1,17 @@
 ﻿using WSCADCodeChallenge.DrawableObjects;
+using WSCADCodeChallenge.Models.Shapes;
+using WSCADCodeChallenge.Services;
 
 namespace WSCADCodeChallenge;
 
 public partial class MainPage : ContentPage 
 {
-
-
-	public MainPage()
+	public MainPage(MainViewModel viewModel)
 	{
-		InitializeComponent();
-		GraphicsView.Drawable = new DrawableGraphic();
+
+		 InitializeComponent();
+    	 BindingContext = viewModel;
+		
 	}
 
 
