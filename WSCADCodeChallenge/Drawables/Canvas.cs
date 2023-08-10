@@ -1,4 +1,4 @@
-using WSCADCodeChallenge.Models.Shapes;
+using WSCADCodeChallenge.Models;
 
 namespace WSCADCodeChallenge.Drawable;
 
@@ -9,14 +9,14 @@ public class Canvas : IDrawable
     {
 
     }
+    
     public Canvas(List<Shape> shapes)
     {
         this.shapes = shapes;
     }
 
-
     public void Draw(ICanvas canvas, RectF dirtyRect)
-    {      
+    {
         foreach (var shape in shapes)
         {
             canvas.StrokeColor = shape.MauiColor;
@@ -28,7 +28,7 @@ public class Canvas : IDrawable
                 case ShapeType.Line:
                     var line = shape as Line;
                     scalingFactor = GetScalingFactor(new List<float> { line.X1, line.Y1, line.X2, line.Y2 });
-                    canvas.DrawLine(CalculateCoordinate(line.X1, scalingFactor), CalculateCoordinate(line.Y1, scalingFactor), CalculateCoordinate(line.X2, scalingFactor) , CalculateCoordinate(line.Y2, scalingFactor));
+                    canvas.DrawLine(CalculateCoordinate(line.X1, scalingFactor), CalculateCoordinate(line.Y1, scalingFactor), CalculateCoordinate(line.X2, scalingFactor), CalculateCoordinate(line.Y2, scalingFactor));
                     break;
                 case ShapeType.Circle:
                     var circle = shape as Circle;
@@ -58,11 +58,10 @@ public class Canvas : IDrawable
 
     private float GetScalingFactor(List<float> coordinates)
     {
-       
         if (coordinates is null || !coordinates.Any())
             return 1;
-    	
-        var cleanedCoordinates = coordinates.Select(x => x < 0 ? x *-1 : x).ToList();
+
+        var cleanedCoordinates = coordinates.Select(x => x < 0 ? x * -1 : x).ToList();
         float maxSize = Constants.WINDOW_HEIGHT_WIDTH / 2;
 
         float maxCoordinate = cleanedCoordinates.Max();
@@ -73,16 +72,15 @@ public class Canvas : IDrawable
         {
             float scaling = maxSize / maxCoordinate;
 
-            if(scaling > 1)
+            if (scaling > 1)
                 return 1;
 
             return scaling;
         }
-            
     }
 
     private float CalculateCoordinate(float position, float scalingfactor = 1)
     {
-       return  (position * scalingfactor) + (Constants.WINDOW_HEIGHT_WIDTH / 2) ;
+        return (position * scalingfactor) + (Constants.WINDOW_HEIGHT_WIDTH / 2);
     }
 }

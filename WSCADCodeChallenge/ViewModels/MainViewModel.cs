@@ -1,31 +1,25 @@
 using WSCADCodeChallenge.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using WSCADCodeChallenge.Drawable;
+using WSCADCodeChallenge.Models;
 
 namespace WSCADCodeChallenge.ViewModels;
 
-public partial class MainViewModel : ObservableObject {
-
+public partial class MainViewModel : ObservableObject
+{
     private readonly ShapeService _shapeService;
 
     [ObservableProperty]
-    Canvas drawableGraphic;
+    IDrawable drawable;
 
     public MainViewModel(ShapeService shapeService)
     {
-        _shapeService = shapeService;
+          _shapeService = shapeService;
+          _ = Init();
+    }
 
-        var task = _shapeService.GetAllShapesAync();
-        try
-        {
-               task.Wait();
-        }
-        catch (System.Exception)
-        {
-            
-            Console.WriteLine("Exception");
-        }
-
-        drawableGraphic = new Canvas(task.Result);
+    public async Task Init() {    
+        List<Shape> shapes = await _shapeService.GetAllShapesAync();      
+        Drawable = new Canvas(shapes);
     }
 }

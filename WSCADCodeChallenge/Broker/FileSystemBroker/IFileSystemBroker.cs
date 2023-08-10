@@ -1,4 +1,4 @@
-using WSCADCodeChallenge.Models.Shapes;
+using WSCADCodeChallenge.Models;
 
 namespace WSCADCodeChallenge.Broker.FileSystemBroker;
 public interface IFileSystemBroker

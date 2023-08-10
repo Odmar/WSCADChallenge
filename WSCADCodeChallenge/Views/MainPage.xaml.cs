@@ -2,16 +2,12 @@
 
 namespace WSCADCodeChallenge.Views;
 
-public partial class MainPage : ContentPage 
+public partial class MainPage : ContentPage
 {
 	public MainPage(MainViewModel viewModel)
 	{
-
-		 InitializeComponent();
-    	 BindingContext = viewModel;
-		
+		InitializeComponent();
+		BindingContext = viewModel;
 	}
-
-
 }
 

@@ -16,14 +16,7 @@ public static class MauiProgram
 			.UseMauiApp<App>()
 			.UseMauiCommunityToolkit()
 			.RegisterServices()
-			.RegisterViewModels()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
-
-		
+			.RegisterViewModels();
 
 #if DEBUG
 		builder.Logging.AddDebug();
@@ -32,20 +25,18 @@ public static class MauiProgram
 		return builder.Build();
 	}
 
-	public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder) {
-
+	public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
+	{
 		mauiAppBuilder.Services.AddSingleton<IFileSystemBroker, JsonFileSystemBroker>();
 		mauiAppBuilder.Services.AddSingleton<ShapeService>();
 
 		return mauiAppBuilder;
 	}
 
-	public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder) {
-
+	public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
+	{
 		mauiAppBuilder.Services.AddSingleton<MainPage>();
 		mauiAppBuilder.Services.AddSingleton<MainViewModel>();
 		return mauiAppBuilder;
 	}
-
-
 }

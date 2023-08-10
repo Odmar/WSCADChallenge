@@ -1,10 +1,10 @@
 using WSCADCodeChallenge.Broker.FileSystemBroker;
-using WSCADCodeChallenge.Models.Shapes;
+using WSCADCodeChallenge.Models;
 
 namespace WSCADCodeChallenge.Services;
 
-public class ShapeService {
-
+public class ShapeService
+{
     private readonly IFileSystemBroker _fileSystemBroker;
 
     public ShapeService(IFileSystemBroker fileSystemBroker)
@@ -12,7 +12,8 @@ public class ShapeService {
         this._fileSystemBroker = fileSystemBroker;
     }
 
-    public async Task<List<Shape>> GetAllShapesAync(){
+    public async Task<List<Shape>> GetAllShapesAync()
+    {
         return await _fileSystemBroker.GetAllShapesAsync();
     }
 }

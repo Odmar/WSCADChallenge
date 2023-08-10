@@ -1,7 +1,5 @@
-
-using System.Text.Json.Nodes;
 using Newtonsoft.Json;
-using WSCADCodeChallenge.Models.Shapes;
+using WSCADCodeChallenge.Models;
 
 namespace WSCADCodeChallenge.Broker.FileSystemBroker;
 
@@ -34,7 +32,7 @@ public class JsonFileSystemBroker : IFileSystemBroker
             switch (shape.Type)
             {
                 case ShapeType.Line:
-                    var line =  JsonConvert.DeserializeObject<Line>(shapeFromList.ToString());
+                    var line = JsonConvert.DeserializeObject<Line>(shapeFromList.ToString());
                     shapes.Add(line);
                     break;
 
@@ -47,9 +45,10 @@ public class JsonFileSystemBroker : IFileSystemBroker
                     var triangle = JsonConvert.DeserializeObject<Triangle>(shapeFromList.ToString());
                     shapes.Add(triangle);
                     break;
-
+                    
                 default:
-                    throw new InvalidDataException(shape.Type + " is an unkown shape");
+                    Console.WriteLine(shape.Type + " is an unkown shape");
+                    break;
             }
         }
 
