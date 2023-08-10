@@ -15,6 +15,11 @@ public class Canvas : IDrawable
         this.shapes = shapes;
     }
 
+    /// <summary>
+    /// INterates over the list of shapes and draws them on a canvas
+    /// </summary>
+    /// <param name="canvas"></param>
+    /// <param name="dirtyRect"></param>
     public void Draw(ICanvas canvas, RectF dirtyRect)
     {
         foreach (var shape in shapes)
@@ -56,6 +61,11 @@ public class Canvas : IDrawable
         }
     }
 
+    /// <summary>
+    /// Takes a list of coordinates and calculates a scalling factor so the shape fits on the screen
+    /// </summary>
+    /// <param name="coordinates"></param>
+    /// <returns></returns>
     private float GetScalingFactor(List<float> coordinates)
     {
         if (coordinates is null || !coordinates.Any())
@@ -79,6 +89,12 @@ public class Canvas : IDrawable
         }
     }
 
+    /// <summary>
+    /// Calculate the coordinates based on screen size and scaling factor
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="scalingfactor"></param>
+    /// <returns></returns>
     private float CalculateCoordinate(float position, float scalingfactor = 1)
     {
         return (position * scalingfactor) + (Constants.WINDOW_HEIGHT_WIDTH / 2);

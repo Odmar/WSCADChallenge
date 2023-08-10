@@ -6,6 +6,11 @@ namespace WSCADCodeChallenge.Broker.FileSystemBroker;
 public class JsonFileSystemBroker : IFileSystemBroker
 {
     private readonly string jsonPath = "Shapes.json";
+
+    /// <summary>
+    /// Reads Shapes.json from app ressources
+    /// </summary>
+    /// <returns></returns>
     private async Task<string> ReadJsonFile()
     {
         using Stream fileStream = await FileSystem.Current.OpenAppPackageFileAsync(jsonPath);
@@ -16,6 +21,10 @@ public class JsonFileSystemBroker : IFileSystemBroker
         return result;
     }
 
+    /// <summary>
+    /// Takes file from ReadJsonFile result and deserialzes the result to Shapes
+    /// </summary>
+    /// <returns></returns>
     public async Task<List<Shape>> GetAllShapesAsync()
     {
         Console.WriteLine("Start Reading JSON");
