@@ -25,8 +25,7 @@ public partial class MainViewModel : ObservableObject {
             
             Console.WriteLine("Exception");
         }
-     
 
-        var bla = task.Result;
+        drawableGraphic = new DrawableGraphic(task.Result);
     }
 }

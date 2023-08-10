@@ -44,4 +44,6 @@ public static class MauiProgram
 		mauiAppBuilder.Services.AddSingleton<MainViewModel>();
 		return mauiAppBuilder;
 	}
+
+
 }

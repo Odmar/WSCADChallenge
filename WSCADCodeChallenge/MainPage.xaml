@@ -5,6 +5,7 @@
              x:DataType="viewmodel:MainViewModel"
              x:Class="WSCADCodeChallenge.MainPage">
 
-<GraphicsView Drawable="{Binding DrawableGraphic}"/>
+
+<GraphicsView Drawable="{Binding DrawableGraphic}" HeightRequest="500" WidthRequest="500" />
 
 </ContentPage >
