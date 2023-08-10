@@ -1,4 +1,3 @@
-using WSCADCodeChallenge.DrawableObjects;
 using WSCADCodeChallenge.Models.Shapes;
 
 namespace WSCADCodeChallenge.Broker.FileSystemBroker;

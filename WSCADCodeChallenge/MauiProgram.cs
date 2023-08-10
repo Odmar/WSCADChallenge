@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using WSCADCodeChallenge.Broker.FileSystemBroker;
 using WSCADCodeChallenge.Services;
+using WSCADCodeChallenge.ViewModels;
+using WSCADCodeChallenge.Views;
 
 namespace WSCADCodeChallenge;
 

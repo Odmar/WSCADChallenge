@@ -1,15 +1,15 @@
 using WSCADCodeChallenge.Models.Shapes;
 
-namespace WSCADCodeChallenge.DrawableObjects;
+namespace WSCADCodeChallenge.Drawable;
 
-public class DrawableGraphic : IDrawable
+public class Canvas : IDrawable
 {
     private readonly List<Shape> shapes;
-    public DrawableGraphic()
+    public Canvas()
     {
 
     }
-    public DrawableGraphic(List<Shape> shapes)
+    public Canvas(List<Shape> shapes)
     {
         this.shapes = shapes;
     }

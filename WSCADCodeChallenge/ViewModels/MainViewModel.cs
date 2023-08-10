@@ -1,15 +1,15 @@
 using WSCADCodeChallenge.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
-using WSCADCodeChallenge.DrawableObjects;
+using WSCADCodeChallenge.Drawable;
 
-namespace WSCADCodeChallenge;
+namespace WSCADCodeChallenge.ViewModels;
 
 public partial class MainViewModel : ObservableObject {
 
     private readonly ShapeService _shapeService;
 
     [ObservableProperty]
-    DrawableGraphic drawableGraphic;
+    Canvas drawableGraphic;
 
     public MainViewModel(ShapeService shapeService)
     {
@@ -26,6 +26,6 @@ public partial class MainViewModel : ObservableObject {
             Console.WriteLine("Exception");
         }
 
-        drawableGraphic = new DrawableGraphic(task.Result);
+        drawableGraphic = new Canvas(task.Result);
     }
 }

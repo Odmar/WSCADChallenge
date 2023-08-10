@@ -1,8 +1,6 @@
-﻿using WSCADCodeChallenge.DrawableObjects;
-using WSCADCodeChallenge.Models.Shapes;
-using WSCADCodeChallenge.Services;
+﻿using WSCADCodeChallenge.ViewModels;
 
-namespace WSCADCodeChallenge;
+namespace WSCADCodeChallenge.Views;
 
 public partial class MainPage : ContentPage 
 {
