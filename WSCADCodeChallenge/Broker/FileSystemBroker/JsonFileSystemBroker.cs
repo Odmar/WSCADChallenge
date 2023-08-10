@@ -22,7 +22,7 @@ public class JsonFileSystemBroker : IFileSystemBroker
     }
 
     /// <summary>
-    /// Takes file from ReadJsonFile result and deserialzes the result to Shapes
+    /// Takes file from ReadJsonFile result and deserialzes the result to a list of Shapes
     /// </summary>
     /// <returns></returns>
     public async Task<List<Shape>> GetAllShapesAsync()
